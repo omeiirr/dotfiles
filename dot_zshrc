@@ -31,7 +31,7 @@ alias ..='cd ..'
 alias ...='cd ../..'
 
 alias pm='pacman'
-alias eb='sudo nvim ~/.zshrc'
+alias eb='chezmoi edit ~/.zshrc'
 alias s='source ~/.zshrc'
 eval "$(zoxide init zsh)"
 
