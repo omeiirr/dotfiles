@@ -1,0 +1,39 @@
+#
+# ~/.bashrc
+#
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+PS1='[\u@\h \W]\$ '
+
+# Starship prompt
+eval "$(starship init bash)"
+
+eval "$(zoxide init bash)"
+
+# Aliases
+
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'
+
+alias ll='eza -lah'
+alias ..='cd ..'
+alias ...='cd ../..'
+
+alias pm='pacman'
+alias eb='sudo nvim ~/.bashrc'
+alias s='source ~/.bashrc'
+alias q='quran'
+alias gr='go run main.go'
+alias addpkg='echo $1 >> ~/Documents/DigitalGarden/Tech/Linux/Arch\ Linux/Installed\ Packages.md'
+alias lspkg='cat ~/Documents/DigitalGarden/Tech/Linux/Arch\ Linux/Installed\ Packages.md'
+
+alias f='fd --type f --hidden --exclude .git | fzf-tmux -p --reverse | xargs nvim'
+alias reboot='sudo systemctl reboot'
+
+# Custom
+# neofetch
+quran random
+
+export EDITOR=nvim
