@@ -22,7 +22,7 @@ alias ..='cd ..'
 alias ...='cd ../..'
 
 alias pm='pacman'
-alias eb='sudo nvim ~/.bashrc'
+alias eb='chezmoi edit ~/.bashrc'
 alias s='source ~/.bashrc'
 alias q='quran'
 alias gr='go run main.go'
