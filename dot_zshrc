@@ -1,0 +1,50 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+# Lines configured by zsh-newuser-install
+HISTFILE=~/.histfile
+HISTSIZE=1000
+SAVEHIST=1000
+# End of lines configured by zsh-newuser-install
+# The following lines were added by compinstall
+zstyle :compinstall filename '/home/omeir/.zshrc'
+
+autoload -Uz compinit
+compinit
+# End of lines added by compinstall
+ZSH_THEME="powerlevel10k/powerlevel10k"
+source ~/powerlevel10k/powerlevel10k.zsh-theme
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# Aliases
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'
+
+alias ll='eza -lah'
+alias ..='cd ..'
+alias ...='cd ../..'
+
+alias pm='pacman'
+alias eb='sudo nvim ~/.zshrc'
+alias s='source ~/.zshrc'
+eval "$(zoxide init zsh)"
+
+alias q='quran'
+alias gr='go run main.go'
+alias addpkg='echo $1 >> ~/Documents/DigitalGarden/Tech/Linux/Arch\ Linux/Installed\ Packages.md'
+alias lspkg='cat ~/Documents/DigitalGarden/Tech/Linux/Arch\ Linux/Installed\ Packages.md'
+
+alias f='fd --type f --hidden --exclude .git | fzf-tmux -p --reverse | xargs nvim'
+
+# Custom
+# neofetch
+# quran random
+
+export EDITOR=nvim
+
