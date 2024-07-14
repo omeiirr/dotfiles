@@ -23,6 +23,7 @@ alias ...='cd ../..'
 
 alias cm='chezmoi'
 alias pm='pacman'
+alias tm='tmux'
 alias eb='chezmoi edit ~/.bashrc'
 alias s='source ~/.bashrc'
 alias q='quran'
