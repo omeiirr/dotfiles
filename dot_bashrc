@@ -28,7 +28,7 @@ alias eb='chezmoi edit ~/.bashrc'
 alias s='source ~/.bashrc'
 alias q='quran'
 alias gr='go run main.go'
-alias addpkg='echo $1 >> ~/Documents/digital-oasis/Tech/Linux/Arch\ Linux/Installed\ Packages.md && git add ~/Documents/digital-oasis/Tech/Linux/Arch\ Linux/Installed\ Packages.md && git commit -m "vault backup" && git push'
+alias addpkg='echo "$1" >> ~/Documents/digital-oasis/Tech/Linux/Arch\ Linux/Installed\ Packages.md && git add ~/Documents/digital-oasis/Tech/Linux/Arch\ Linux/Installed\ Packages.md && git commit -m "vault backup" && git push'
 alias lspkg='cat ~/Documents/digital-oasis/Tech/Linux/Arch\ Linux/Installed\ Packages.md'
 
 alias f='fd --type f --hidden --exclude .git | fzf-tmux -p --reverse | xargs nvim'
