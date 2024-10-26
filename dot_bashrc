@@ -32,7 +32,20 @@ alias addpkg='echo "$1" >> ~/Documents/digital-oasis/Tech/Linux/Arch\ Linux/Inst
 # alias addpkg='echo "$1" >> ~/Documents/digital-oasis/Tech/Linux/Arch\ Linux/Installed\ Packages.md && git add ~/Documents/digital-oasis/Tech/Linux/Arch\ Linux/Installed\ Packages.md && git commit -m "vault backup" && git push'
 alias lspkg='cat ~/Documents/digital-oasis/Tech/Linux/Arch\ Linux/Installed\ Packages.md'
 
-alias f='fd --type f --hidden --exclude .git | fzf-tmux -p --reverse | xargs nvim'
+#alias f='fd --type f --hidden --exclude .git | fzf-tmux -p --reverse | xargs nvim'
+f() {
+    local file
+    file=$(fd --type f --hidden --exclude .git | fzf-tmux --reverse)
+    
+    if [[ $file == *.mp4 || $file == *.mkv || $file == *.avi || $file == *.mp3 || $file == *.wav || $file == *.flac ]]; then
+        mpv "$file"
+    elif [[ $file == *.txt ]]; then
+        nvim "$file"
+    else
+        echo "Selected file type not supported."
+    fi
+}
+
 alias reboot='sudo systemctl reboot'
 
 # Custom
