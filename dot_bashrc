@@ -37,7 +37,7 @@ f() {
     local file
     file=$(fd --type f --hidden --exclude .git | fzf-tmux --reverse)
     
-    if [[ $file == *.mp4 || $file == *.mkv || $file == *.avi || $file == *.mp3 || $file == *.wav || $file == *.flac ]]; then
+    if [[ $file == *.mp4 || $file == *.mkv || $file == *.avi || $file == *.mp3 || $file == *.wav || $file == *.flac || $file == *.jpg || $file == *.m4a ]]; then
         mpv "$file"
     elif [[ $file == *.txt ]]; then
         nvim "$file"
