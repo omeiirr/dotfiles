@@ -1,0 +1,220 @@
+{
+  "position": "top",
+    "margin-top" : 0,
+    "margin-left": 0,
+    "margin-right": 0,
+    "height" : 28,
+    "modules-left": [
+    // "custom/arch",
+    "hyprland/workspaces",
+    "cpu",
+    "memory",
+    "temperature",
+    ],
+    "modules-center": [
+      "hyprland/window"
+      // "custom/cava_mviz",
+    ],
+    "modules-right": [
+    "pulseaudio",
+    "network",
+    "backlight",
+    "clock",
+    "battery",
+    "custom/notifications",
+    "custom/exit"
+
+    // "idle_inhibitor",
+    // "hyprland/language",
+    // "tray",
+    // "network",
+    // "disk",
+    // "bluetooth",
+],
+    "hyprland/window": {
+      "format": "{}",
+      "max-length": 35,
+      "rewrite": {
+        "": "Hyprland"
+      },
+      "separate-outputs": true
+    },
+    // "hyprland/workspaces": {
+    //   "format": "{icon}",
+    //   "on-click": "activate",
+      // "format-icons": {
+      //   "active": " ",
+      // },
+      // "sort-by-number": true,
+      // "persistent-workspaces": {
+      //   "*": 3, // 3 workspaces by default on every monitor
+      //   "HDMI-A-1": 3 // but only three on HDMI-A-1
+      // },
+    // },
+    "clock": {
+      "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+      "format-alt": "{:%d-%m-%Y}"
+      // "format-alt": "{:%Y-%m-%d}"
+    },
+    "cpu": {
+      "format": " {usage}%",
+      "tooltip": true,
+      "on-click": "kitty btop",
+    },
+    "memory": {
+      "format": " {}%"
+
+    },
+    "battery": {
+      "states": {
+        "warning": 30,
+        "critical": 15
+      },
+      "format": "{icon} {capacity}%",
+      "format-full": "{icon} {capacity}%",
+      "format-charging": "  {capacity}%",
+      "format-plugged": " {capacity}%",
+      "format-alt": "{time} {icon}",
+      "format-icons": ["", "", "", "", ""],
+      "interval": 3,
+    },
+    "network": {
+      "format-wifi": "    {signalStrength}%",
+      "format-ethernet": "{cidr}  Speed:{bandwidthDownBits} {bandwidthUpBytes}",
+      "tooltip-format": "{essid} \n{ifname} via {gwaddr}   \n :{bandwidthDownBits}  :{bandwidthUpBytes}",
+      "format-linked": "{ifname} (No IP) ",
+      "format-disconnected": " ⚠ ",
+      // "format-alt": "{ifname}: {ipaddr}/{cidr}/{essid}",
+      "interval": 3,
+    },
+    "pulseaudio": {
+        // "scroll-step": 1, // %, can be a float
+        "format": " {icon} {volume}% {format_source}",
+        "format-bluetooth": "{volume}% {icon} {format_source}",
+        "format-bluetooth-muted": " {icon} {format_source}",
+        "format-muted": " {format_source}",
+        "format-source": " {volume}%",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol"
+
+      },
+
+    "custom/exit": {
+        "format": "",
+        "on-click": "wlogout",
+        "on-click-right": "hyprlock",
+        "tooltip-format": "Left: Power menu\nRight: Lock screen"
+      },
+      "custom/arch": {
+        "format":"Apps ",
+      "tooltip": false,
+      "on-click": "rofi"
+    },
+    "custom/calculator": {
+        "format": " ",
+        "on-click": "qalculate-gtk",
+        "tooltip": false
+    },
+    "disk": {
+        "interval": 30,
+        "format": "&#128191; {percentage_used}%",
+        "path": "/",
+
+    },
+     "custom/system": {
+        "format": "🧼 ",
+        "tooltip": true,
+        "on-click": "kitty htop",
+    },
+    "temperature": {
+        "thermal-zone": 2,
+        "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+        "critical-threshold": 80,
+        "format": "{icon} {temperatureC}°C",
+        "format-icons": ["", "", ""]
+    },
+    "backlight": {
+	"interval": 2,
+	"align": 0,
+	"rotate": 0,
+	"format": "{icon} {percent}%",
+	"format-icons": ["💡"],
+},
+"hyprland/language": {
+        "format":  " {short}"
+    },
+
+
+    "custom/copyq": {
+        "format": "",
+        "on-click": "copyq show",
+        "tooltip": true,
+    },
+
+"bluetooth": {
+    "format" : "",
+		// "tooltip": false,
+		"on-click": "blueberry",
+
+    "format-icons": ["", "󰤾", "󰥀", "󰥄", "󰥈"],
+
+    "tooltip-format-off": "Bluetooth is off",
+    "tooltip-format-on": "Bluetooth is on",
+
+    "format-connected": "{icon} {num_connections}",
+    "format-connected-battery": "{icon} {device_battery_percentage}%",
+
+    "tooltip-format-connected": "{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}\t{device_battery_percentage}%",
+},
+
+"tray": {
+        "icon-size": 20,
+        "spacing": 2,
+        "tooltip": false,
+},
+
+"custom/notifications": {
+    "format" : "  ",
+    "on-click": "swaync-client -t",
+  // "tooltip" = false;
+  // "format" : "{} {icon}",
+  "format-icons" : {
+    "notification" : " 󱅫 ",
+    "none" : "  ",
+    "dnd-notification" : "   ",
+    "dnd-none" : " 󰂛 ",
+    "inhibited-notification" : "   ",
+    "inhibited-none" : "  ",
+    "dnd-inhibited-notification" : "   ",
+    "dnd-inhibited-none" : "   ",
+  },
+    "exec" : "swaync-client -swb",
+    "on-click" : "sleep 0.1 && swaync-client -t -sw",
+    "on-click-right" : "sleep 0.1 && swaync-client -d -sw",
+  // "return-type" : "json",
+  // "exec-if" : "which swaync-client",
+  // escape : true,
+}
+// "custom/cava_mviz": {
+// 	"exec": "$HOME/.config/waybar/WaybarCava.sh",
+// 	"format": "{}"
+// 	},
+
+// "idle_inhibitor": {
+//         "format": "{icon}",
+//         "format-icons": {
+//             "activated": "",
+//             "deactivated": ""
+//         }
+//     },
+}
