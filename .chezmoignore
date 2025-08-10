@@ -1,0 +1,6 @@
+.git
+.config/**/.git
+.github
+
+
+.tmux/plugins
